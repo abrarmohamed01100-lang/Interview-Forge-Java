@@ -189,7 +189,8 @@ class Interview {
 	private String name;
 	private int maxScore = 0;
 	private Scanner input = new Scanner(System.in);
-	private ArrayList<Question> wrongQuestions = new ArrayList<>(); // list for wrong answers
+	// list for wrong answers
+	private ArrayList<Question> wrongQuestions = new ArrayList<>();
 
 	public Interview(QuestionBank questionBank, String name) {
 		this.questionBank = questionBank;
@@ -217,7 +218,8 @@ class Interview {
 				userScore = userScore + q.getPoints();
 			} else {
 				System.out.println("Wrong.");
-				wrongQuestions.add(q); // save wrong question
+				// save wrong question
+				wrongQuestions.add(q);
 			}
 		}
 
@@ -236,6 +238,7 @@ class Interview {
 				String answer = input.nextLine();
 				if (q.checkAnswer(answer)) {
 					System.out.println("Good! Now it's correct. You learned it.");
+					userScore = userScore + q.getPoints(); // add score in retry
 				} else {
 					System.out.println("Still wrong. Remember: " + q.getTip());
 				}
@@ -258,13 +261,10 @@ public class Main {
 		// add questions with tips
 		String[] oopOptions = {"Java", "HTML", "CSS", "SQL"};
 		bank.addQuestion(new MCQQuestion("Which language supports OOP?", "OOP", 1, 10, oopOptions, "1", "OOP means Object Oriented. HTML is not programming language"));
-
 		String[] accessOptions = { "public", "static", "private", "final"};
 		bank.addQuestion(new MCQQuestion("Which modifier is most restricted?", "Encapsulation", 1, 10, accessOptions, "3", "private can only be seen inside same class"));
-
 		bank.addQuestion(new TrueFalseQuestion("Inheritance allows a class to reuse another class.", "Inheritance", 2, 20, "true", "Inheritance uses extends keyword"));
 		bank.addQuestion(new TrueFalseQuestion("Java does not support polymorphism.", "Polymorphism", 2, 20, "false", "Java supports polymorphism with overloading and overriding"));
-
 		bank.addQuestion(new TextQuestion("What keyword is used to create an interface in Java?", "Interface", 1, 30, "interface", "interface keyword is used to create interface"));
 		bank.addQuestion(new TextQuestion("Which keyword is used to hide data?", "Encapsulation", 1, 30, "private", "We hide data to protect it"));
 
