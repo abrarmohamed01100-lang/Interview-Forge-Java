@@ -30,4 +30,9 @@ It is a small interview simulator that asks Java OOP questions and gives you a s
 ## How to run?
 Open Main.java in any IDE and run it.
 
-Made by Abrar Mohamed
+## Output Screenshots
+
+![Screenshot 1](Screenshot_1.png)
+![Screenshot 2](Screenshot_2.png)
+
+
